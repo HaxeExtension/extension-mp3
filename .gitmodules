@@ -1,0 +1,6 @@
+[submodule "dependencies/linc_openal"]
+	path = dependencies/linc_openal
+	url = https://github.com/snowkit/linc_openal.git
+[submodule "dependencies/taglib"]
+	path = dependencies/taglib
+	url = https://github.com/taglib/taglib.git

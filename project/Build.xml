@@ -1,0 +1,40 @@
+<xml>
+
+	<include name="${HXCPP}/build-tool/BuildCommon.xml"/>
+
+	<include name="taglib.xml"/>
+
+	<files id="common">
+		<compilerflag value="-DTAGLIB_STATIC" />
+		<compilerflag value="-Icommon/include" />
+		<compilerflag value="-I${TAGLIB_PATH}" />
+		<compilerflag value="-I${TAGLIB_PATH}/ape" />
+		<compilerflag value="-I${TAGLIB_PATH}/mpeg" />
+		<compilerflag value="-I${TAGLIB_PATH}/mpeg/id3v1" />
+		<compilerflag value="-I${TAGLIB_PATH}/mpeg/id3v2" />
+		<compilerflag value="-I${TAGLIB_PATH}/toolkit" />
+		<file name="common/ExternalInterface.cpp"/>
+	</files>
+
+	<set name="SLIBEXT" value=".lib" if="windows"/>
+	<set name="SLIBEXT" value=".a" unless="windows"/>
+	<set name="SLIBEXT" value=".so" if="webos"/>
+
+	<set name="DEBUGEXTRA" value="-debug" if="fulldebug" />
+
+	<target id="NDLL" output="${LIBPREFIX}extension-mp3${MSVC_LIB_VERSION}${DEBUGEXTRA}${LIBEXTRA}" tool="linker" toolid="${STD_MODULE_LINK}">
+
+		<outdir name="../ndll/${BINDIR}"/>
+		<ext value=".ndll" if="windows || mac || linux"/>
+		<files id="common"/>
+		<files id="taglib"/>
+
+	</target>
+
+	<target id="default">
+
+		<target id="NDLL"/>
+
+	</target>
+
+</xml>

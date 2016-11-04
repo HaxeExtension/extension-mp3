@@ -1,0 +1,11 @@
+{
+	"name": "extension-mp3",
+	"url": "https://github.com/SempaiGames/extension-mp3",
+	"license": "MIT",
+	"tags": ["MP3","OpenFL","MME","Audio"],
+	"description": "",
+	"contributors": ["fbricker"],
+	"dependencies": { },
+	"version": "1.0.0",
+	"releasenote": "First release"
+}
